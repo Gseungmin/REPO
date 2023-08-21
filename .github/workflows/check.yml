@@ -3,7 +3,7 @@ name: Reusable Check Commit Message Workflow
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      CUSTOM_GITHUB_TOKEN:
         required: true
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
         id: 'get-pr-commits'
         uses: tim-actions/get-pr-commits@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
       - name: Check Subject Line Length
         uses: tim-actions/commit-message-checker-with-regex@v0.3.1
         with:
